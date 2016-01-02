@@ -10,8 +10,8 @@ public class User implements Serializable {
 	private String userName;
 	private String password;
 	private String email;
-	private ArrayList<HousingPost> interested = new ArrayList<HousingPost>();
-	private ArrayList<HousingPost> posted = new ArrayList<HousingPost>();
+	private ArrayList<HousingPost> interested = new ArrayList<>();
+	private ArrayList<HousingPost> posted = new ArrayList<>();
 
 	/**
 	 * @param userName
@@ -26,17 +26,18 @@ public class User implements Serializable {
 	}
 
 	/**
+	 * @param userName
+	 *            the user name to set
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	/**
 	 * @return the userName
 	 */
 	public String getUserName() {
 		return userName;
-	}
-
-	/**
-	 * @return the password
-	 */
-	public String getPassword() {
-		return password;
 	}
 
 	/**
@@ -52,14 +53,6 @@ public class User implements Serializable {
 	 */
 	public String getEmail() {
 		return email;
-	}
-
-	/**
-	 * @param email
-	 *            the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	/**
@@ -84,7 +77,17 @@ public class User implements Serializable {
 		this.interested.remove(notInterested);
 	}
 
+	public void creatwPost(String ownership, String houseType, String floor, String roomType,
+			double price, String availableDate, String location, String minimumStay, Utility utilities,
+			ArrayList<String> policies, User user) {
+		HousingPost newPost = new HousingPost(ownership, houseType, floor, roomType,
+				price, availableDate, location, minimumStay, utilities,
+				policies, user);
+		this.interested.add(newPost);
+	}
+
 	public void deletePost(HousingPost post) {
 		this.posted.remove(post);
+		PostManager.posts.remove(post);
 	}
 }

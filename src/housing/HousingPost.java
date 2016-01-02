@@ -13,36 +13,42 @@ public class HousingPost implements Serializable {
 	private String ownership;
 	private String houseType;
 	private String roomType;
+	private String floor;
 	private double price;
 	private String availableDate;
 	private String location;
 	private String minimumStay;
-	private HashMap<String, String> utilities = new HashMap<String, String>();
-	private ArrayList<String> policies = new ArrayList<String>();
+	private Utility utilities = new Utility();
+	private ArrayList<String> policies = new ArrayList<>();
+	private User user;
 
 	/**
 	 * @param ownership
 	 * @param houseType
 	 * @param roomType
+	 * @param floor
 	 * @param price
 	 * @param availableDate
 	 * @param location
 	 * @param minimumStay
 	 * @param utilities
 	 * @param policies
+	 * @param user
 	 */
-	public HousingPost(String ownership, String houseType, String roomType, double price, String availableDate, String location,
-			String minimumStay, HashMap<String, String> utilities, ArrayList<String> policies) {
+	public HousingPost(String ownership, String houseType, String roomType, String floor, double price, String availableDate, String location,
+			String minimumStay, Utility utilities, ArrayList<String> policies, User user) {
 		super();
 		this.ownership = ownership;
 		this.houseType = houseType;
 		this.roomType = roomType;
+		this.floor = floor;
 		this.price = price;
 		this.availableDate = availableDate;
 		this.location = location;
 		this.minimumStay = minimumStay;
 		this.utilities = utilities;
-		this.policies = policies;		
+		this.policies = policies;
+		this.user = user;		
 		this.instanceID = count;
         count++;
 	}
@@ -129,11 +135,11 @@ public class HousingPost implements Serializable {
 		this.location = location;
 	}
 
-	public HashMap<String, String> getUtilities() {
+	public Utility getUtilities() {
 		return utilities;
 	}
 
-	public void setUtilities(HashMap<String, String> utilities) {
+	public void setUtilities(Utility utilities) {
 		this.utilities = utilities;
 	}
 
@@ -159,5 +165,17 @@ public class HousingPost implements Serializable {
 
 	public void setRoomType(String roomType) {
 		this.roomType = roomType;
+	}
+
+	public String getFLoor() {
+		return floor;
+	}
+
+	public void setFloor(String floor) {
+		this.floor = floor;
+	}
+
+	public User getUser(){
+		return user;
 	}
 }

@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>MyHome</title>
+<base href="C:/Users/May/Documents/GitHub/housing/html/" />
+<style type="text/css">
+	body { margin: 0; }
+	#shade, #login_modal { display: none; }
+	#shade, #signup_modal { display: none; }
+	#shade { position: fixed; z-index: 100; top: 0; left: 0; width: 100%; height: 100%; }
+	#login_modal { position: fixed; z-index: 101; top: 33%; left: 25%; width: 50%; }
+	#signup_modal { position: fixed; z-index: 101; top: 33%; left: 25%; width: 50%; }
+	#shade { background: silver; opacity: 0.5; filter: alpha(opacity=50); }
+</style>
+</head>
+
+<body> <!-- background="home_background.jpg" -->
+	<div id="shade"></div>
+	<div id="login_modal">
+		<form>
+			<center>Email <input name="Email address" size="14" /></center>
+			<center>Password <input name="Password" type="password" size="14" /></center>
+			<center><input type="submit" name="submit_login" value="Log in" />
+				<button id="close">Close</button></center>
+		</form>
+	</div>
+
+	<div id="signup_modal">
+		<form>
+			<center>Nickname<input name="nickname" size="14" /></center>
+			<center>Email <input name="email" size="14" /></center>
+			<center>Password <input name="password" type="password" size="14" /></center>
+			<center>Confirm password <input name="rePassword" type="password" size="14" /></center>
+			<center><input type="submit" name="submit_signup" value="Register!" />
+				<button id="close">Close</button></center>
+		</form>
+	</div>
+
+	<p>
+		<button id="login">Log in</button>
+		<button id="signup">Sign up</button>
+	</p>
+
+	<script type="text/javascript">
+		var login_modal= document.getElementById('login_modal');
+		var signup_modal= document.getElementById('signup_modal');
+		var shade= document.getElementById('shade');
+		document.getElementById('login').onclick= function() {
+			login_modal.style.display=shade.style.display= 'block';
+		};
+		document.getElementById('signup').onclick= function() {
+			signup_modal.style.display=shade.style.display= 'block';
+		};
+		document.getElementById('close').onclick= function() {
+			login_modal.style.display=shade.style.display= 'none';
+		};
+	</script>
+
+<center>
+	<a href="searching.html"><input type="button" value="I'm searching" /></a><br />
+	<a href="posting.html"><input type="button" value="I'm posting" /></a>
+</center>
+</body>
+</html>
