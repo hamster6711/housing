@@ -1,40 +1,163 @@
 <html>
 <head>
 <title>Posting apartment</title>
+
+<!-- testing code: auto-refresh, to be deleted after finished coding -->
+<script type="text/javascript">
+<!--
+	function AutoRefresh(t){
+		setTimeout("location.reload(ture);", t)
+	}
+
+	function Redirect(text){
+		window.location=text;
+	}
+
+	function SayHello(){
+		alert("Hello")
+	}
+
+	function getConfirmation(){
+		var con = confirm("Do you want to continue?")
+		if (con == true){
+			Redirect("http://www.tutorialspoint.com")
+		} else{
+		Redirect("http://www.baidu.com")
+		}
+	}
+	function getValue(){
+		var input = prompt("Enter your name: ")
+		if(input == null){
+		}
+		else if(input == ""){
+			alert("empty content")
+		} else{
+		document.write("You've entered your name: " + input);
+		}
+	}
+	//-->
+</script>
 </head>
 
-<body>
-	<p>This is posting page.</p>
+<!-- auto-refresh applies here -->
+<body onload="JavaScript:AutoRefresh();">
+	<h2>This is the posting page.</h2>
+	<h1>Test</h1>
+	<form>
+		<input type="button" value="Input here" onclick="getValue()" />
+	</form>
 
-	<p>
-		Address <input type="text" name="address" /><br />
-		Email <input type="text" name="email" /><br />
-		Amenities
+	<div id="ownership">
+	<h3>Ownership</h3>
 		<form>
-			<button id="heating">Heating</button>
-			<button id="water">Water</button>
-			<button id="electricity">Electricity</button>
-			<button id="internet">Internet</button>
-			<button id="kitchen">Kitchen</button>
-				<button id="microwave">Microwave</button>
-				<button id="fridge">Fridge</button>
-			<button id="ac">Air conditioning</button>
-			<button id="washer">Washer</button>
-			<button id="dryer">Dryer</button>
-			<button id="parking">Parking</button>
-			<button id="tv">TV</button>
-			<button id="individual_washroom">Individual washroom</button>
+			<input type="button" value="Owner" />
+			<input type="button" value="Sublet" />
+			<input type="button" value="Agent" />
+			<input type="button" value="Coorporation" />
 		</form>
-		Inside the room
+	</div>
+
+	<div id="availability">
+	<h3>Availablility</h3>
+		Available from <input type="month" name="available_from">
+		Available to <input type="month" name="available_to"><br /> <!-- Do not have to be filled in -->
+
+	<h3>Minimum stay</h3>
+		<select name="select_dmy">
+			<option value="none">None</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+		</select>		
+		<input type="button" value="days" />
+		<input type="button" value="weeks" />
+		<input type="button" value="months" />
+		<input type="button" value="years" />
+	</div><br />
+
+	<div id="price">
+		<h3>Rent</h3>
+		<input type="text" name="rent" /> 
+		<input type="button" value="day_rent" />
+		<input type="button" value="week_rent" />
+		<input type="button" value="month_rent" />
+		<input type="button" value="year_rent" />
+	</div>
+
+	<div id="house_type">
+		<h3>House type</h3>
 		<form>
-			<button id="unfurnished">Unfurnished</button>
-			<button id="bed">Bed</button>
-			<button id="closet">Closet</button>
-			<button id="desk">Desk</button>
-			<button id="chair">Chair</button>
-			<button id="bookshelf">Bookshelf</button>
-			<button id="desklamp">Desklamp</button>
+			<input type="button" value="condo" />
+			<input type="button" value="apartment" />
+			<input type="button" value="detached_house" />
+			<input type="button" value="town_house" />
+			<input type="button" value="triplet_house" />
 		</form>
-	</p>
+	</div>
+
+
+	<div id="room_type">
+		<h3>About the room</h3>
+		<form>
+			<input type="button" value="whole_space" />
+			<input type="button" value="private" />
+			<input type="button" value="living room" />
+			<input type="button" value="den" />
+			Others <input type="text" name="other_room_type" />
+			<br /> 
+			Floor <input type="text" name="floor"><br />
+			Recommanded accomodates<input type="number" name="accomodates" min="1" max="15" />
+		</form>
+	</div>
+
+	<div id="roommate">
+		<h3>Roomate</h3>
+		<form>
+			<input type="button" value="mixed" />
+			<input type="button" value="Male only" />
+			<input type="button" value="Female only" />
+		</form>
+		Number of roomates: <input type="number" name="num_roomate" min="0" max="15" /><br />
+		Please describe your roomates in a brief sentence.
+		<input type="text" name="roommate1" />
+	</div><br />
+
+	<h3>Covered by rent</h3>
+		<form>
+			<input type="button" value="heating" />
+			<input type="button" value="water" />
+			<input type="button" value="electricity" />
+			<input type="button" value="internet" />
+			<input type="button" value="kitchen" />
+				<input type="button" value="microwave" />
+				<input type="button" value="fridge" />
+			<input type="button" value="ac" />
+			<input type="button" value="washer" />
+			<input type="button" value="dryer" />
+			<input type="button" value="parking" />
+			<input type="button" value="tv" />
+			<input type="button" value="individual_washroom" />
+		</form>
+
+	<h3>Inside the room</h3>
+		<form>
+			<input type="button" value="unfurnished" />
+			<input type="button" value="bed" />
+			<input type="button" value="closet" />
+			<input type="button" value="desk" />
+			<input type="button" value="chair" />
+			<input type="button" value="bookshelf" />
+			<input type="button" value="desklamp" />
+		</form>
+
+	<h3>Address</h3> 
+		<input type="text" name="address" /><br />
+
+	<h3>Contact</h3>
+		Email <input type="email" name="email" />
 </body>
 <html/>
